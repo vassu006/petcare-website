@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PetCare - Love. Care. Protect.</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="pet.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="logo">
+            <i class="fa-solid fa-paw"></i>
+            <span>Pet<span>Care</span></span>
+        </div>
+
+        <nav class="navbar" id="navbar">
+            <a href="#home">Home</a>
+            <a href="#pets">Pets</a>
+            <a href="#services">Services</a>
+            <a href="#tips">Care Tips</a>
+            <a href="#hospitals">Hospitals</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <li class="nav-search">
+    <input 
+        type="text" 
+        id="navSearch"
+        placeholder="Search..."
+        onkeyup="navSearch()"
+    >
+    <span>🔍</span>
+</li>
+
+        <div class="header-icons">
+            <button class="search-btn" onclick="openSearch()">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+
+            <button class="menu-btn" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+    </header>
+
+
+    <!-- ================= SEARCH POPUP ================= -->
+
+    <div class="search-overlay" id="searchOverlay">
+
+        <div class="search-box">
+
+            <button class="close-btn" onclick="closeSearch()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h2>Search PetCare</h2>
+
+            <div class="search-input">
+                <input
+                    type="text"
+                    id="searchPet"
+                    placeholder="Search dogs, cats, care tips..."
+                    onkeyup="searchContent()">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+
+            <div id="searchResults"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= HOME ================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <span class="small-title">
+                <i class="fa-solid fa-paw"></i>
+                Welcome to PetCare
+            </span>
+
+            <h1>
+                Because Every Pet
+                Deserves <span>Love & Care</span>
+            </h1>
+
+            <p>
+                Your trusted companion for better pet health,
+                nutrition, safety and happiness.
+            </p>
+
+            <div class="hero-buttons">
+
+                <button class="primary-btn" onclick="openAppointment()">
+                    Book Appointment
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+                <a href="#services" class="secondary-btn">
+                    Explore Services
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-image">
+
+            <div class="pet-circle">
+                🐶
+            </div>
+
+            <div class="floating-card card-one">
+                ❤️ Healthy Pets
+            </div>
+
+            <div class="floating-card card-two">
+                🩺 Expert Care
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= STATISTICS ================= -->
+
+    <section class="statistics">
+
+        <div class="stat-box">
+            <i class="fa-solid fa-paw"></i>
+            <h2>500+</h2>
+            <p>Pets Helped</p>
+        </div>
+
+        <div class="stat-box">
+            <i class="fa-solid fa-user-doctor"></i>
+            <h2>50+</h2>
+            <p>Veterinary Doctors</p>
+        </div>
+
+        <div class="stat-box">
+            <i class="fa-solid fa-house"></i>
+            <h2>100+</h2>
+            <p>Pets Adopted</p>
+        </div>
+
+        <div class="stat-box">
+            <i class="fa-solid fa-heart"></i>
+            <h2>1000+</h2>
+            <p>Happy Pet Parents</p>
+        </div>
+
+    </section>
+
+
+    <!-- ================= PET CATEGORIES ================= -->
+
+    <section class="section" id="pets">
+
+        <div class="section-heading">
+
+            <span>Our Friends</span>
+
+            <h2>Find the Right Care for Your Pet</h2>
+
+            <p>
+                Select your pet and discover useful care information.
+            </p>
+
+        </div>
+
+
+        <div class="pet-grid">
+
+            <div class="pet-card"
+                 data-search="dog puppy dogs">
+
+                <div class="pet-icon">🐶</div>
+
+                <h3>Dogs</h3>
+
+                <p>
+                    Nutrition, exercise, grooming and health tips
+                    for your furry friend.
+                </p>
+
+                <button onclick="showPetInfo('Dogs')">
+                    View Care
+                </button>
+
+            </div>
+
+
+            <div class="pet-card"
+                 data-search="cat kitten cats">
+
+                <div class="pet-icon">🐱</div>
+
+                <h3>Cats</h3>
+
+                <p>
+                    Keep your cat healthy, active and comfortable
+                    with proper care.
+                </p>
+
+                <button onclick="showPetInfo('Cats')">
+                    View Care
+                </button>
+
+            </div>
+
+
+            <div class="pet-card"
+                 data-search="bird birds parrot">
+
+                <div class="pet-icon">🦜</div>
+
+                <h3>Birds</h3>
+
+                <p>
+                    Learn about safe food, cages, hygiene and
+                    daily bird care.
+                </p>
+
+                <button onclick="showPetInfo('Birds')">
+                    View Care
+                </button>
+
+            </div>
+
+
+            <div class="pet-card"
+                 data-search="rabbit rabbits bunny">
+
+                <div class="pet-icon">🐰</div>
+
+                <h3>Rabbits</h3>
+
+                <p>
+                    Simple guidance for food, exercise and
+                    healthy living.
+                </p>
+
+                <button onclick="showPetInfo('Rabbits')">
+                    View Care
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SERVICES ================= -->
+
+   <section class="services" id="services">
+    <div class="section-title">
+        <span>What We Offer</span>
+        <h2>Our Pet Care Services</h2>
+        <p>Everything your pet needs to stay healthy, happy and active.</p>
+    </div>
+
+    <div class="service-grid">
+
+        <div class="service-card" onclick="openService('health')">
+            <div class="service-icon">🩺</div>
+            <h3>Health Checkups</h3>
+            <p>Regular health examinations for your beloved pets.</p>
+            <button class="service-btn">Learn More →</button>
+        </div>
+
+        <div class="service-card" onclick="openService('grooming')">
+            <div class="service-icon">✂️</div>
+            <h3>Pet Grooming</h3>
+            <p>Keep your pet clean, comfortable and looking their best.</p>
+            <button class="service-btn">Learn More →</button>
+        </div>
+
+        <div class="service-card" onclick="openService('vaccination')">
+            <div class="service-icon">💉</div>
+            <h3>Vaccination</h3>
+            <p>Protect your pets from common infectious diseases.</p>
+            <button class="service-btn">Learn More →</button>
+        </div>
+
+        <div class="service-card" onclick="openService('emergency')">
+            <div class="service-icon">🚑</div>
+            <h3>Emergency Help</h3>
+            <p>Quick guidance when your pet needs urgent attention.</p>
+            <button class="service-btn">Learn More →</button>
+        </div>
+
+    </div>
+</section>
+
+    <!-- ================= CARE TIPS ================= -->
+
+    <section class="section tips-section" id="tips">
+
+        <div class="section-heading">
+
+            <span>Pet Knowledge</span>
+
+            <h2>Essential Pet Care Tips</h2>
+
+        </div>
+
+
+        <div class="tips-grid">
+
+            <div class="tip-card"
+                 data-search="pet food nutrition diet">
+
+                <span class="tip-number">01</span>
+
+                <h3>Healthy Nutrition</h3>
+
+                <p>
+                    Give pets a balanced diet appropriate for
+                    their species, age and health needs.
+                </p>
+
+            </div>
+
+
+            <div class="tip-card"
+                 data-search="pet exercise walking fitness">
+
+                <span class="tip-number">02</span>
+
+                <h3>Regular Exercise</h3>
+
+                <p>
+                    Daily activity helps pets maintain fitness
+                    and supports good behaviour.
+                </p>
+
+            </div>
+
+
+            <div class="tip-card"
+                 data-search="pet clean hygiene grooming">
+
+                <span class="tip-number">03</span>
+
+                <h3>Proper Hygiene</h3>
+
+                <p>
+                    Keep food bowls, bedding and living areas
+                    clean and comfortable.
+                </p>
+
+            </div>
+
+
+            <div class="tip-card"
+                 data-search="pet vaccination doctor health">
+
+                <span class="tip-number">04</span>
+
+                <h3>Regular Vet Visits</h3>
+
+                <p>
+                    Routine veterinary visits can help detect
+                    health problems early.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= HOSPITALS ================= -->
+
+    <section class="section hospital-section" id="hospitals">
+
+        <div class="section-heading">
+
+            <span>Emergency & Medical Care</span>
+
+            <h2>Nearby Veterinary Hospitals</h2>
+
+            <p>
+                Search for veterinary hospitals using Google Maps.
+            </p>
+
+        </div>
+
+
+        <div class="hospital-search">
+
+            <input
+                type="text"
+                id="hospitalLocation"
+                placeholder="Enter your city or area">
+
+            <button onclick="findHospitals()">
+                <i class="fa-solid fa-location-dot"></i>
+                Find Hospitals
+            </button>
+
+        </div>
+
+
+        <div class="map-container">
+
+            <iframe
+                id="googleMap"
+                src="https://www.google.com/maps?q=veterinary%20hospital%20Vijayawada&output=embed"
+                loading="lazy"
+                allowfullscreen>
+            </iframe>
+
+        </div>
+
+
+        <div class="hospital-actions">
+
+            <a
+                href="https://www.google.com/maps/search/veterinary+hospitals/"
+                target="_blank"
+                class="primary-btn">
+
+                <i class="fa-solid fa-map-location-dot"></i>
+                Open Google Maps
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ADOPTION ================= -->
+
+    <section class="adoption-section">
+
+        <div class="adoption-content">
+
+            <span>Give Them a Home</span>
+
+            <h2>Adopt. Don't Shop.</h2>
+
+            <p>
+                Every pet deserves a safe, loving and caring home.
+                Open your heart and give a pet a second chance.
+            </p>
+
+            <button class="primary-btn"
+                    onclick="showMessage('Thank you for choosing to help pets! 🐾')">
+
+                Adopt Now
+                <i class="fa-solid fa-heart"></i>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section class="section contact-section" id="contact">
+
+        <div class="section-heading">
+
+            <span>Get in Touch</span>
+
+            <h2>Contact PetCare</h2>
+
+        </div>
+
+
+        <div class="contact-container">
+
+            <div class="contact-info">
+
+                <h3>We Care About Your Pets ❤️</h3>
+
+                <p>
+                    Have a question about pet care?
+                    Send us a message and we'll be happy to help.
+                </p>
+
+                <div class="contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91 7989482469</span>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>petcare@example.com</span>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Vijayawada, Andhra Pradesh</span>
+                </div>
+
+            </div>
+
+
+            <form class="contact-form"
+                  onsubmit="submitContact(event)">
+
+                <input
+                    type="text"
+                    id="contactName"
+                    placeholder="Your Name"
+                    required>
+
+                <input
+                    type="email"
+                    id="contactEmail"
+                    placeholder="Email Address"
+                    required>
+
+                <textarea
+                    id="contactMessage"
+                    rows="5"
+                    placeholder="Your Message"
+                    required></textarea>
+
+                <button type="submit" class="primary-btn">
+                    Send Message
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= APPOINTMENT POPUP ================= -->
+
+   <div class="modal" id="appointmentModal" aria-hidden="true">
+  <div class="modal-content">
+    <button class="close-btn" type="button" onclick="closeAppointment()" aria-label="Close">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="modal-icon">🐾</div>
+    <h2>Book Pet Appointment</h2>
+    <p>Fill in your details and we'll help you with your pet-care request.</p>
+
+    <form onsubmit="bookAppointment(event)">
+      <input id="ownerName" type="text" placeholder="Your Name" required>
+      <input id="petName" type="text" placeholder="Pet Name" required>
+
+      <select id="petType" required>
+        <option value="">Select Pet Type</option>
+        <option>Dog</option>
+        <option>Cat</option>
+        <option>Bird</option>
+        <option>Rabbit</option>
+      </select>
+
+      <input id="appointmentDate" type="date" required>
+
+      <button type="submit" class="primary-btn">Confirm Appointment</button>
+    </form>
+  </div>
+</div>
+
+<div class="modal" id="infoModal" aria-hidden="true">
+  <div class="modal-content info-content">
+    <button class="close-btn" type="button" onclick="closeInfo()" aria-label="Close">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div id="infoBody"></div>
+  </div>
+</div>
+
+    <!-- ================= GENERAL POPUP ================= -->
+
+    <div class="toast" id="toast">
+
+        <i class="fa-solid fa-circle-check"></i>
+
+        <span id="toastMessage">
+            Success!
+        </span>
+
+    </div>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="footer-logo">
+            <i class="fa-solid fa-paw"></i>
+            PetCare
+        </div>
+
+        <p>
+            Caring for pets, one paw at a time. 🐾
+        </p>
+
+        <div class="social-icons">
+
+            <a href="#">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a href="#">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+
+            <a href="#">
+                <i class="fa-brands fa-twitter"></i>
+            </a>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 PetCare | Designed by Vasantha
+        </div>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script src="pet.js"></script>
+<!-- SERVICE INFORMATION MODAL -->
+<div class="service-modal" id="serviceModal">
+    <div class="service-modal-content">
+
+        <button class="close-service" onclick="closeService()">×</button>
+
+        <div id="serviceModalBody"></div>
+
+    </div>
+</div>
+</body>
+</html>
